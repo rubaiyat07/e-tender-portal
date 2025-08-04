@@ -1,0 +1,142 @@
+/* FooterComponent.css */
+.footer {
+  background: linear-gradient(to bottom, #000000, #2d3436);
+  color: white;
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #006D77, #2A9D8F, #7A9CC6);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+  padding: 0 15px;
+}
+
+.footer-col h4 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background: linear-gradient(to right, #006D77, #2A9D8F);
+  height: 2px;
+  width: 50px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #b2b2b2;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.footer-links a i {
+  font-size: 1.1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-10px -5px);
+  box-shadow: 0 5px 15px #0dcadb80;
+}
+
+.newsletter input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.newsletter button {
+  background: linear-gradient(to right, #006D77, #2A9D8F);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.newsletter button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px #0dcadb80;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b2b2b2;
+  font-size: 0.9rem;
+}

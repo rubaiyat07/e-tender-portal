@@ -1,0 +1,241 @@
+/* TendersPage.css */
+
+/* General Styles */
+.tender-page-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.tender-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.tender-header h1 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.tender-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Filter Card Styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0 !important;
+  padding: 15px 20px;
+}
+
+.card-header h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Form Control Styles */
+.form-label {
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 8px;
+}
+
+.form-select, .form-control {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+.form-select:focus, .form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+.input-group .btn {
+  border-radius: 0 5px 5px 0;
+}
+
+/* Button Styles */
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-outline-success {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Tab Button Styles */
+.tender-tabs .btn-group {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tender-tabs .btn {
+  font-size: 0.85rem;
+  padding: 8px 12px;
+}
+
+/* Table Styles */
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  vertical-align: middle;
+  font-weight: 600;
+  color: #2c3e50;
+  background-color: #e9f5ee;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 12px 15px;
+}
+
+/* Badge Styles */
+.badge {
+  font-weight: 500;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.bg-primary {
+  background: linear-gradient(to right, #006D77, #2A9D8F) !important;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+.bg-dark {
+  background: linear-gradient(to right, #343a40, #687574) !important;
+}
+
+/* Pagination Styles */
+.pagination {
+  margin-bottom: 0;
+}
+
+.page-item.active .page-link {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.page-link {
+  color: #28a745;
+}
+
+.page-link:hover {
+  color: #1e7e34;
+}
+
+/* No Results Styles */
+.text-center {
+  color: #7f8c8d;
+}
+
+.text-center i {
+  margin-bottom: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .tender-header {
+    margin-bottom: 20px;
+  }
+  
+  .tender-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .table td, .table th {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .btn-sm {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .tender-page-container {
+    padding: 15px;
+  }
+  
+  .tender-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .tender-header p {
+    font-size: 1rem;
+  }
+  
+  .form-label {
+    font-size: 0.9rem;
+  }
+  
+  .form-select, .form-control {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,195 @@
+/* About.css */
+
+/* General Styles */
+.about-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header Section */
+.about-header {
+  background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+  color: white;
+  padding: 60px 0 30px;
+  margin-bottom: 40px;
+}
+
+.about-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+/* Main Content */
+.about-content {
+  margin-bottom: 50px;
+}
+
+.about-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.about-card h2 {
+  color: #1e5799;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.about-card h3 {
+  color: #207cca;
+  font-size: 1.4rem;
+  margin: 25px 0 15px;
+}
+
+.about-card p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.about-card ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.about-card ul li {
+  margin-bottom: 8px;
+}
+
+/* Sidebar */
+.sidebar-card {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.sidebar-card h3 {
+  color: #1e5799;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.quick-links, .download-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-links li, .download-links li {
+  margin-bottom: 12px;
+}
+
+.quick-links a, .download-links a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+}
+
+.quick-links a:hover, .download-links a:hover {
+  color: #207cca;
+  padding-left: 8px;
+}
+
+/* Milestones Section */
+.milestones-section {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.milestones-section h2 {
+  text-align: center;
+  color: #1e5799;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.milestone-item {
+  margin-bottom: 30px;
+}
+
+.milestone-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.milestone-card:hover {
+  transform: translateY(-5px);
+}
+
+.milestone-card h3 {
+  color: #207cca;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.milestone-card p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .about-header {
+    padding: 40px 0 20px;
+  }
+  
+  .about-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-card, .sidebar-card {
+    padding: 20px;
+  }
+  
+  .about-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .milestone-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-header {
+    padding: 30px 0 15px;
+  }
+  
+  .about-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .breadcrumb {
+    font-size: 0.8rem;
+  }
+}

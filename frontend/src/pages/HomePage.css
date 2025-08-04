@@ -1,0 +1,212 @@
+/* HomePage.css */
+.home-page-container {
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image for stats section */
+.stats-section {
+  position: relative;
+  padding: 2rem 0;
+  margin-bottom: 3rem;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/e-tender-bg.png'); /* Image path here */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.65;
+  z-index: 0;
+}
+
+.stats-section h1, .stats-section p {
+  position: relative;
+  z-index: 2; /* Higher than the ::before pseudo-element */
+}
+
+.banner-text {
+  font-weight: 300;
+  text-shadow: #e9ecef 2px 2px 4px;
+}
+
+.last-updated-text {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  position: relative;
+}
+
+.stats-card {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 0 0.5rem;
+  z-index: 1;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stats-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stats-card .card-body {
+  padding: 1.5rem;
+}
+
+/* Policy & About Cards */
+.policy-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  margin: 0.5rem;
+}
+
+.policy-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.policy-card .card-body {
+  padding: 1.5rem;
+}
+
+.policy-card .card-title {
+  font-size: 1.25rem;
+  color: #006D77;
+}
+
+.policy-card .card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Action Buttons */
+.action-buttons {
+  margin: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.action-btn {
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.browse-btn {
+  background: linear-gradient(to right, #006D77, #2A9D8F);
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 109, 119, 0.3);
+}
+
+.browse-btn:hover {
+  background: linear-gradient(to right, #2A9D8F, #006D77);
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(0, 109, 119, 0.4);
+}
+
+.get-started-btn {
+  border: 2px solid #2A9D8F;
+  color: #2A9D8F;
+  background: transparent;
+}
+
+.get-started-btn:hover {
+  background: rgba(141, 178, 182, 0.90);
+  transform: translateY(-3px);
+  color: #006D77;
+}
+
+/* Search Button */
+.search-button {
+  background: transparent !important;
+  border: 2px solid #006D77 !important;
+  color: #006D77 !important;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background: rgba(0, 109, 119, 0.1) !important;
+  transform: translateY(-2px);
+  color: #006D77 !important;
+}
+
+/* Card Headers */
+.card-header.bg-primary {
+  background: linear-gradient(to right, #006D77, #2A9D8F) !important;
+}
+
+.card-header.bg-info {
+  background: linear-gradient(to right, #4ca096, #737981) !important;
+}
+
+.card-header.bg-warning {
+  background: linear-gradient(to right, #E9C46A, #F4A261) !important;
+}
+
+.card-header.bg-success {
+  background: linear-gradient(to right, #2A9D8F, #4ca096) !important;
+}
+
+.card-header.bg-dark {
+  background: linear-gradient(to right, #343a40, #666c72) !important;
+}
+
+.card-header {
+  color: white !important;
+  border-bottom: none !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* Table Styling */
+.table {
+  --bs-table-bg: transparent;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 109, 119, 0.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .policy-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .action-btn {
+    width: 100%;
+  }
+}

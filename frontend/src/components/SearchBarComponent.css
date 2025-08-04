@@ -1,0 +1,133 @@
+/* SearchBarComponent.css */
+.search-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(131, 143, 143, 0.75);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+/* Rest of your existing SearchBarComponent.css remains the same */
+.search-input-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 500px;
+  margin-left: 1rem;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px 0 0 50px;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.search-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: linear-gradient(to right, #006D77, #2A9D8F);
+  color: white;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background: linear-gradient(to right, #2A9D8F, #006D77);
+  transform: translateY(-1px);
+}
+
+.icons-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.icon-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #e63946;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-text {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.login-button, .register-button, .logout-button {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: white;
+}
+
+.login-button:hover, .register-button:hover, .logout-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .search-input-container {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .icons-container {
+    width: 100%;
+    justify-content: flex-end;
+    margin-right: 0;
+  }
+  
+  .button-text {
+    display: none;
+  }
+}
+

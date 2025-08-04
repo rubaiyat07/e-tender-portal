@@ -1,0 +1,100 @@
+/* src/components/LoginComponent.css */
+.login-page-container {
+  background: linear-gradient(135deg, #e6e6e6 0%, #859795 100%);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.login-card-wrapper {
+  perspective: 1000px;
+}
+
+
+.login-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h2 {
+  color: #006D77;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  color: #6c757d;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: #2A9D8F;
+  box-shadow: 0 0 0 0.25rem rgba(42, 157, 143, 0.25);
+}
+
+.forgot-password {
+  color: #006D77;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: linear-gradient(to right, #006D77, #2A9D8F);
+  border: none;
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  background: linear-gradient(to right, #2A9D8F, #006D77);
+  transform: translateY(-2px);
+}
+
+.register-link {
+  color: #006D77;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 1.5rem;
+  }
+}
