@@ -20,6 +20,7 @@ dist-ssr
 .idea
 .DS_Store
 *.suo
+<<<<<<< HEAD
 *.ntvs*
 *.njsproj
 *.sln
@@ -67,3 +68,9 @@ Thumbs.db
 
 # Optional: Skip coverage reports if using testing
 coverage/
+=======
+.ntvs
+*.njsproj
+*.sln
+*.sw?
+>>>>>>> 9834e94661a9047066b474115598d3a285e551cb
