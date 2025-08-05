@@ -42,6 +42,11 @@
   border-radius: 0 50px 50px 0;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Add these properties */
+  min-height: 100%; /* Ensure it matches input height */
+  margin: 0; /* Remove any default margins */
+  box-shadow: none; /* Remove any default shadows */
+  outline: none; /* Remove focus outline if needed */
 }
 
 .search-button:hover {
