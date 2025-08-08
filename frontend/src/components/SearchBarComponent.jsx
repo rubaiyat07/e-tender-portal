@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './SearchBarComponent.css';
 
-const SearchBarComponent = ({ isLoggedIn = false }) => {
+const SearchBarComponent = ({ isLoggedIn = false, user = null }) => {
   return (
     <div className="search-bar-container">
       {/* Search Bar on the left */}
@@ -26,11 +26,15 @@ const SearchBarComponent = ({ isLoggedIn = false }) => {
           <span className="notification-badge">3</span>
         </button>
 
-        {/* Profile Icon */}
-        {isLoggedIn ? (
-          <Link to="/profile" className="icon-button profile-button">
-            <i className="bi bi-person-fill"></i>
-          </Link>
+        {/* Profile section with user info when logged in */}
+        {isLoggedIn && user ? (
+          <div className="user-info-container">
+            <span className="user-name">{user.name}</span>
+            <span className="user-type">{user.type}</span>
+            <Link to="/profile" className="icon-button profile-button">
+              <i className="bi bi-person-fill"></i>
+            </Link>
+          </div>
         ) : (
           <button className="icon-button profile-button" disabled>
             <i className="bi bi-person-fill"></i>

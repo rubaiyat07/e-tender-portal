@@ -1,6 +1,7 @@
 // src/components/LoginComponent.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './LoginComponent.css';
 
 const LoginComponent = () => {
@@ -27,15 +28,38 @@ const LoginComponent = () => {
     setError('');
     
     try {
-      // TODO: Replace with actual API call
-      console.log('Login data:', formData);
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // On successful login
-      navigate('/');
+      const response = await axios.post(
+        'http://localhost/Web_Dev/Git%20Demo/e-tender-portal/backend/api/auth/login.php',
+        {
+          email: formData.email,
+          password: formData.password
+        },
+        {
+          withCredentials: true // For session cookies
+        }
+      );
+
+      if (response.data.status) {
+        // Store user data in localStorage
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        
+        // Redirect based on user type or to dashboard
+        navigate(response.data.user.user_type === 'admin' ? '/admin' : '/dashboard');
+      } else {
+        setError(response.data.message || 'Login failed. Please try again.');
+      }
     } catch (err) {
-      setError(err.message || 'Login failed. Please try again.');
+      // Handle different types of errors
+      if (err.response) {
+        // Server responded with error status
+        setError(err.response.data.message || 'Login failed. Please try again.');
+      } else if (err.request) {
+        // Request was made but no response received
+        setError('Network error. Please check your connection.');
+      } else {
+        // Other errors
+        setError('An unexpected error occurred.');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -76,6 +100,7 @@ const LoginComponent = () => {
             className="form-control"
             placeholder="Enter your password"
             required
+            minLength="6"
           />
         </div>
 
