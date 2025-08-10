@@ -1,10 +1,8 @@
-// src/components/LoginComponent.jsx
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './LoginComponent.css';
 
-const LoginComponent = () => {
+const LoginComponent = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -12,7 +10,6 @@ const LoginComponent = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,43 +23,18 @@ const LoginComponent = () => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
-    
-    try {
-      const response = await axios.post(
-        'http://localhost/Web_Dev/Git%20Demo/e-tender-portal/backend/api/auth/login.php',
-        {
-          email: formData.email,
-          password: formData.password
-        },
-        {
-          withCredentials: true // For session cookies
-        }
-      );
 
-      if (response.data.status) {
-        // Store user data in localStorage
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        
-        // Redirect based on user type or to dashboard
-        navigate(response.data.user.user_type === 'admin' ? '/admin' : '/dashboard');
-      } else {
-        setError(response.data.message || 'Login failed. Please try again.');
+    if (typeof onLogin === 'function') {
+      try {
+        await onLogin(formData);
+      } catch (err) {
+        setError(err.message || 'Login failed. Please try again.');
       }
-    } catch (err) {
-      // Handle different types of errors
-      if (err.response) {
-        // Server responded with error status
-        setError(err.response.data.message || 'Login failed. Please try again.');
-      } else if (err.request) {
-        // Request was made but no response received
-        setError('Network error. Please check your connection.');
-      } else {
-        // Other errors
-        setError('An unexpected error occurred.');
-      }
-    } finally {
-      setIsLoading(false);
+    } else {
+      setError('Login function is not defined.');
     }
+
+    setIsLoading(false);
   };
 
   return (
@@ -100,7 +72,6 @@ const LoginComponent = () => {
             className="form-control"
             placeholder="Enter your password"
             required
-            minLength="6"
           />
         </div>
 
