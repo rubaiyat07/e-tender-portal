@@ -29,9 +29,9 @@ const LoginPage = () => {
         if (data.user.user_type === 'admin') {
           navigate('/admin');
         } else if (data.user.user_type === 'vendor') {
-          navigate('/dashboard/vendor');
+          navigate('/vendor');
         } else {
-          navigate('/dashboard');
+          navigate('/unauthorized');
         }
       } else {
         throw new Error(data.message || 'Login failed');

@@ -8,8 +8,9 @@ import RegisterPage from '../pages/RegisterPage';
 import TendersPage from '../pages/TendersPage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
+import ProtectedRoute from '../components/ProtectedRoute';
+// Dashboard components
 import DashboardLayout from '../layouts/DashboardLayout';
-import DashboardMainContentComponent from '../components/dashboard/DashboardMainContentComponent';
 
 // Example dashboard pages
 import AdminDashboard from '../pages/admin/AdminDashboard';
@@ -31,21 +32,18 @@ const AppRoutes = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
+      </Route>
+      {/* Protected routes */}
+      <Route element={<ProtectedRoute allowedRoles={['admin', 'vendor']} />}>
         {/* Vendor Dashboard */}
-        <Route
-          path="/dashboard"
-          element={<DashboardLayout allowedRoles={['vendor']} />}
-        >
+        <Route path="/vendor" element={<DashboardLayout allowedRoles={['vendor']} />}>
           <Route index element={<VendorDashboard />} />
           <Route path="tenders" element={<div>My Tenders Page</div>} />
           <Route path="profile" element={<div>Profile Page</div>} />
         </Route>
 
         {/* Admin Dashboard */}
-        <Route
-          path="/admin"
-          element={<DashboardLayout allowedRoles={['admin']} />}
-        >
+        <Route path="/admin" element={<DashboardLayout allowedRoles={['admin']} />}>
           <Route index element={<AdminDashboard />} />
           <Route path="manage-users" element={<div>Manage Users Page</div>} />
           <Route path="manage-tenders" element={<div>Manage Tenders Page</div>} />

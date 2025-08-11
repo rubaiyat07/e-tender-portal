@@ -173,56 +173,78 @@ class User {
     }
 
     
-    // Common login functionality for all user types
-    public function login($email, $password) {
-        try {
-            // Check if user exists
-            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = ?");
-            $stmt->execute([$email]);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    public function login($email, $password) 
+    {
+    try {
+        // Check if user exists
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if (!$user) {
-                return ["status" => false, "message" => "Invalid email or password"];
-            }
-
-            // Verify password
-            if (!password_verify($password, $user['password'])) {
-                return ["status" => false, "message" => "Invalid email or password"];
-            }
-
-            // Check if account is verified
-            if ($user['status'] != 1) {
-                return ["status" => false, "message" => "Account not verified. Please verify your email first."];
-            }
-
-            // Create session
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_email'] = $user['email'];
-            $_SESSION['user_type'] = $user['user_type'];
-            $_SESSION['logged_in'] = true;
-
-            // Log login attempt
-            $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-            $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
-            
-            $logStmt = $this->pdo->prepare("INSERT INTO login_logs (user_id, ip_address, user_agent) VALUES (?, ?, ?)");
-            $logStmt->execute([$user['id'], $ip, $userAgent]);
-
-            return [
-                "status" => true,
-                "message" => "Login successful",
-                "user" => [
-                    "id" => $user['id'],
-                    "name" => $user['name'],
-                    "email" => $user['email'],
-                    "user_type" => $user['user_type'],
-                    "company_name" => $user['company_name']
-                ]
-            ];
-
-        } catch (PDOException $e) {
-            return ["status" => false, "message" => "Database error: " . $e->getMessage()];
+        if (!$user) {
+            return ["status" => false, "message" => "Invalid email or password"];
         }
+
+        // Verify password
+        if (!password_verify($password, $user['password'])) {
+            return ["status" => false, "message" => "Invalid email or password"];
+        }
+
+        // Check account status with new status levels
+        switch ($user['status']) 
+        {
+            case 0: // Unverified account
+                return ["status" => false, "message" => "Account not verified. Please verify your email first."];
+            case 1: // Verified but not privileged to bid
+                $message = "Account verified. Awaiting approval to bid for tenders.";
+                break;
+            case 2: // Fully privileged vendor
+                $message = "Login successful. You have full bidding privileges.";
+                break;
+            case 3: // Admin
+                $message = "Admin login successful.";
+                break;
+            case 4: // Procurement officer
+                $message = "Procurement officer login successful.";
+                break;
+            default:
+                return ["status" => false, "message" => "Account status invalid. Please contact support."];
+        }
+
+        // Create session with additional status information
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_email'] = $user['email'];
+        $_SESSION['user_type'] = $user['user_type'];
+        $_SESSION['account_status'] = $user['status'];
+        $_SESSION['logged_in'] = true;
+
+        // Log login attempt - CORRECTED to match your SQL structure
+        $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+        
+        $logStmt = $this->pdo->prepare(
+            "INSERT INTO login_logs (user_id, ip_address, user_agent) VALUES (?, ?, ?)"
+        );
+        $logStmt->execute([$user['id'], $ip, $userAgent]);
+
+        return [
+            "status" => true,
+            "message" => $message,
+            "user" => [
+                "id" => $user['id'],
+                "name" => $user['name'],
+                "email" => $user['email'],
+                "user_type" => $user['user_type'],
+                "company_name" => $user['company_name'],
+                "account_status" => $user['status']
+            ]
+        ];
+
+    } 
+    catch (PDOException $e) 
+    {
+        return ["status" => false, "message" => "Database error: " . $e->getMessage()];
+    }
     }
 
     // Add this method to your User class
